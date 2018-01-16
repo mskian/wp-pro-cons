@@ -2,7 +2,7 @@
 /*
 	Plugin Name: JoomDev WP Pros & Cons
 	Plugin URI: http://elegantinfosolution.com/
-	Description: This plugin provides you the shortcode to show pros/cons on any of the page. It will add a button to editor, which enables you the visual shortcode.
+	Description: This plugin provides you the shortcode to show pros/cons on any page of your WP website. It will add a button to editor, which enables you enable/create the shortcode visually for and insert it into the editor.
 	Version: 1.0.0
 	Author: JoomDev
 	Author URI: http://elegantinfosolution.com/
