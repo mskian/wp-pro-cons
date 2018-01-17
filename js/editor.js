@@ -12,12 +12,14 @@ jQuery(function($) {
             });
 
             //button functionality.
-            ed.addCommand("joomdev_wpc_shortcode_command", function() {
+            ed.addCommand("joomdev_wpc_shortcode_command", function(ui, v) {
                 // var selected_text = ed.selection.getContent();
                 // var return_text = "<span style='color: green'>" + selected_text + "</span>";
                 // ed.execCommand("mceInsertContent", 0, return_text);
 
                 // open popup on click this button
+                var d = $('#joomdev_wpc_editor_button_popup').dialog('open');
+
             });
 
         },
