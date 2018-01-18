@@ -27,9 +27,13 @@ function joomdev_wpc_extract_shortcode($content){
 				'button_text' => 'Get it now',
 				'pros' => array(),
 				'cons' => array(),
+				'disable_button' => 'no',
+				'button_link' => 'javascript:;',
+				'button_link_target' => '_SELF',
+				'button_rel_attr' => 'nofollow',
 			);
 
-    if (   preg_match_all( '/'. $pattern .'/s', $content, $matches ) && array_key_exists( 2, $matches ) && in_array( 'joomdev-wpc-pros-cons', $matches[2] )){
+    /*if (   preg_match_all( '/'. $pattern .'/s', $content, $matches ) && array_key_exists( 2, $matches ) && in_array( 'joomdev-wpc-pros-cons', $matches[2] )){
         $atts = $matches[3][0];
         $shortcode_content = $matches[5][0];
 
@@ -47,7 +51,7 @@ function joomdev_wpc_extract_shortcode($content){
         if ( preg_match_all( '/'. $p2 .'/s', $shortcode_content, $m2 ) && array_key_exists( 2, $m2 ) && in_array( 'joomdev-wpc-cons', $m2[2] )){
         	$r['cons'] = $m2[5];
         }
-    }
+    }*/
 
 	return $r;
 }

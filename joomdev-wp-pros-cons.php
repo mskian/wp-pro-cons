@@ -20,7 +20,7 @@ if(!defined('JOOMDEV_DIR')){
 
 include 'jommdev-wpc-functions.php';
 include 'admin/jommdev-wpc-options.php';
-include 'admin/joomdev-wpc-shortcodes.php';
+include 'joomdev-wpc-shortcodes.php';
 
 add_action('init', 'get_joomdev_wpc_options', 99);
 
