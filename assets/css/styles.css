@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.wp-pros-cons {
+    background: #f9f9f9;
+    margin: 0 auto;
+    border: dashed 2px #28b914;
+    width: 100%;
+    max-width: 963px;
+    padding: 70px 82px;
+}
+
+.wp-pros-cons .wp-pros-cons-title {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #1a1a1a;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.wp-pros-cons .wp-pros-cons-sections {
+    margin: 0 auto;
+}
+
+.wp-pros-cons-img-container {
+    display: inline-block;
+    width: 116px;
+    height: 116px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    position: relative;
+}
+
+.wp-pros-cons .section {
+    background: #fff;
+    width: calc(50% - 38px);
+    margin: 0 18px 0px;
+    position: relative;
+    padding-top: 90px;
+    display: inline-block;
+    text-align: left;
+    padding: 0 27px;
+    padding-bottom: 45px;
+    -webkit-box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 135px;
+}
+
+.wp-pros-cons-img-wrap {
+    text-align: center;
+    margin-top: -58px;
+}
+
+.wp-pros-cons-img-container img {
+    vertical-align: middle;
+    display: inline-block;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+.wp-pros-cons .bg-green {
+    background-color: #28b914;
+}
+
+.wp-pros-cons .bg-red {
+    background-color: #ff0b0b;
+}
+
+
+.wp-pros-cons .section-title {
+    font-size: 28px;
+    font-family: 'Open Sans', sans-serif;
+    color: #252525;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+
+.wp-pros-cons ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+.wp-pros-cons ul li {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: #3b3b3b;
+    margin: 16px 0;
+}
+
+.wp-pros-cons .pros-section ul li {
+    padding-left: 33px;
+    background: url('../img/check.png') no-repeat top 8px left;
+    background-size: 18px 17px;
+}
+
+.wp-pros-cons .cons-section ul li {
+    padding-left: 33px;
+    background: url('../img/cros.png') no-repeat top 8px left;
+    background-size: 18px 17px;
+}
+
+.wp-pros-cons .wp-pros-cons-btn-wrap {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.wp-pros-cons a {
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    background: #212121;
+    padding: 12px 146px;
+    border-radius: 60px;
+    display: inline-block;
+}
+
+@media (max-width:1024px) {
+    .wp-pros-cons {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width:767px) {
+
+    .wp-pros-cons {
+        width: auto;
+        padding: 40px 42px;
+    }
+
+    .wp-pros-cons .section {
+        width: 100%;
+        margin: 0 0px 0px;
+        position: relative;
+        padding-top: 90px;
+        display: inline-block;
+        text-align: left;
+        padding: 0 27px;
+        padding-bottom: 93px;
+        -webkit-box-shadow: 0 0 10px #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 100px;
+    }
+
+    .wp-pros-cons .section-title {
+        margin-bottom: 20px;
+    }
+    
+    .wp-pros-cons .wp-pros-cons-btn-wrap {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .wp-pros-cons a {
+        text-decoration: none;
+        font-size: 30px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        color: #fff;
+        background: #212121;
+        padding: 12px 46px;
+        border-radius: 60px;
+        display: inline-block;
+    }
+
+}
+
+@media (max-width:480px) {
+
+    .wp-pros-cons {
+        width: auto;
+        padding: 40px 20px;
+    }
+
+    .wp-pros-cons .section {
+        width: 100%;
+        margin: 0 0px 0px;
+        position: relative;
+        padding-top: 90px;
+        display: inline-block;
+        text-align: left;
+        padding: 0 27px;
+        padding-bottom: 93px;
+        -webkit-box-shadow: 0 0 10px #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 100px;
+    }
+    
+    .wp-pros-cons .section-title {
+        margin-bottom: 20px;
+    }
+    
+    .wp-pros-cons .wp-pros-cons-btn-wrap {
+        text-align: center;
+        margin-top: 25px;
+    }
+    
+    .wp-pros-cons a {
+        text-decoration: none;
+        font-size: 30px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        color: #fff;
+        background: #212121;
+        padding: 12px 46px;
+        border-radius: 60px;
+        display: inline-block;
+    }
+
+}
