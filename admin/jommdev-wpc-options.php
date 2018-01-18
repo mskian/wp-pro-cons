@@ -24,8 +24,82 @@ function joomdev_wpc_register_setting_callback($a){
 
 function jommdev_wpc_register_menu_page_callback(){
     ?>
+        <style type="text/css">
+            .jommdev-wpc-settings-header{
+                background-color: #fff;
+                border-top: 4px solid #23282d;
+                padding: 25px 30px;
+                margin-bottom: 20px;
+            }
+            .column-left{
+                float: left;
+            }
+            .column-right{
+                float: right;
+            }
+            .jommdev-more-themes-plugins-button{
+                background-color: #23282d;
+                padding: 10px 20px;
+                font-size: 13px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 3px;
+            }
+            .jommdev-more-themes-plugins-button:hover{
+                color: #fff;
+            }
+
+            .jommdev-wpc-settings-menu-tabs{
+                margin-bottom: 20px;
+                border-bottom: 4px solid #fff;
+            }
+            .jommdev-wpc-settings-menu-tabs ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            .jommdev-wpc-settings-menu-tabs ul li{
+                list-style-type: none;
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+            }
+            .jommdev-wpc-settings-menu-tabs ul li a{
+                display: block;
+                padding: 10px;
+                border-top: 2px solid #dd7e7e;
+                text-decoration: none;
+                color: #dd7e7e;
+                background-color: #fff;
+                font-weight: bold;
+            }
+            .jommdev-wpc-settings-menu-tabs ul li a:hover{
+                color: #dd7e7e;
+            }
+        </style>
     	<div class="wrap">
-    		<h2>JoomDev WP Pros & Cons Settings</h2>
+    		<!-- <h2>JoomDev WP Pros & Cons Settings</h2> -->
+            <h2></h2>
+            <div class="jommdev-wpc-settings-header">
+                <div class="column-left">
+                    <h1><img src="<?php echo plugins_url( JOOMDEV_DIR . '/images/joomdev-wpc.png' ); ?>"> <b>WP Pros &amp; Cons</b> <small><small>by <b><i>JoomDev</i></b></small></small></h1>
+                </div>
+                <div class="column-right">
+                    <a href="https://www.jdthemes.com/" target="_BLANK" class="jommdev-more-themes-plugins-button"><i class="fa fa-cart"></i> More WP Themes &amp; Plugins</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="jommdev-wpc-settings-menu-tabs">
+                <ul>
+                    <li>
+                        <a href="javascript:;">Settings</a>
+                    </li>
+                </ul>
+            </div>
+
 
     		<?php 
     			if($_GET['settings-updated']){
@@ -38,7 +112,7 @@ function jommdev_wpc_register_menu_page_callback(){
 				}
     		?>
 
-    		<img style="max-width:100%;" src="<?php echo plugins_url( JOOMDEV_DIR . '/images/settings-header.png' ); ?>">
+    		<!-- <img style="max-width:100%;" src="<?php echo plugins_url( JOOMDEV_DIR . '/images/settings-header.png' ); ?>"> -->
 
     		<form method="post" action="options.php">
 
@@ -136,13 +210,17 @@ function joomdev_wpc_editor_button_popup(){
                 'button_text' => 'Get it now',
                 'pros' => array(),
                 'cons' => array(),
+                'disable_button' => 'no',
+                'button_link' => 'javascript:;',
+                'button_link_target' => '_SELF',
+                'button_rel_attr' => 'nofollow',
             );
-    $screen = get_current_screen();
+    /*$screen = get_current_screen();
     if($screen->base == 'post'){
         global $post;
         $description = $post->post_content;
         $r = joomdev_wpc_extract_shortcode($description);
-    }
+    }*/
 
     ?>
         <!-- The modal / dialog box, hidden somewhere near the footer -->
@@ -191,11 +269,57 @@ function joomdev_wpc_editor_button_popup(){
                 <button type="button" class="button button-secondary button-large joomdev_wpc_add_cons">+ Add Cons</button>
             </div>
             <div class="clear"></div>
-            <div class="joomdev_wpc_button_text">
-                <label><h4>Button Text</h4>
-                    <input type="text" name="joomdev_wpc_button_text" class="regular-text" value="<?php echo $r['button_text']; ?>">
+            <div class="mb20">
+                <label><h4>Disable Button</h4>
+                    <input type="hidden" name="joomdev_wpc_disable_button" value="no">
+                    <input type="checkbox" name="joomdev_wpc_disable_button" id="joomdev_wpc_disable_button" value="yes">
                 </label>
             </div>
+            <div class="clear"></div>
+            <div class="column">
+                <div class="joomdev_wpc_button_text">
+                    <label><h4>Button Text</h4>
+                        <input type="text" name="joomdev_wpc_button_text" class="regular-text" value="<?php echo $r['button_text']; ?>">
+                    </label>
+                </div>
+            </div>
+            <div class="column">
+                <div class="mb20">
+                    <label><h4>Button Link</h4>
+                        <input type="text" name="joomdev_wpc_button_link" class="regular-text" value="<?php echo $r['button_link']; ?>">
+                    </label>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+            <div class="clear"></div>
+            <div class="column">
+                <div class="mb20">
+                    <label><h4>Button Link Target</h4>
+                        <select name="joomdev_wpc_button_link_target">
+                            <option value="_SELF" selected>Open in same tab</option>
+                            <option value="_BLANK">Open in new tab</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="column">
+                <div class="mb20">
+                    <label><h4>Button Rel Attribute</h4>
+                        <select name="joomdev_wpc_button_rel_attr">
+                            <option value="nofollow" selected>Nofollow</option>
+                            <option value="noreferrer">Noreferrer</option>
+                            <option value="noopener">Noopener</option>
+                            <option value="external">External</option>
+                            <option value="help">Help</option>
+                            <option value="alternate">Alternate</option>
+                            <option value="author">Author</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="clear"></div>
+        
             <div class="joomdev_wpc_save">
                 <button type="button" class="button button-primary button-large joomdev_wpc_save_shortcode">Save Shortcode</button>
                 <button type="button" class="button button-secondary button-large joomdev_wpc_cancel_shortcode">Cancel</button>
@@ -203,6 +327,9 @@ function joomdev_wpc_editor_button_popup(){
         </div>
 
         <style type="text/css">
+            .mb20{
+                margin-bottom: 20px;
+            }
             .joomdev_wpc_title{
                 margin-bottom: 20px;
             }
@@ -289,22 +416,34 @@ function joomdev_wpc_editor_button_popup(){
                     title = $.trim(title);
                     var button_text = $(document).find('[name="joomdev_wpc_button_text"]').val();
                     button_text = $.trim(button_text);
+                    var disable_button = $(document).find('#joomdev_wpc_disable_button').is(':checked') ? 'yes' : 'no';
+                    disable_button = $.trim(disable_button);
+                    var button_link = $(document).find('[name="joomdev_wpc_button_link"]').val();
+                    button_link = $.trim(button_link);
+                    var button_link_target = $(document).find('[name="joomdev_wpc_button_link_target"]').val();
+                    button_link_target = $.trim(button_link_target);
+                    var button_rel_attr = $(document).find('[name="joomdev_wpc_button_rel_attr"]').val();
+                    button_rel_attr = $.trim(button_rel_attr);
 
                     var shortcode_string_pros = '';
                     $(document).find('[name="joomdev_wpc_pro_single[]"]').each(function(){
                         var v = $(this).val();
                         v = $.trim(v);
-                        shortcode_string_pros += '[joomdev-wpc-pros]'+v+'[/joomdev-wpc-pros]';
+                        // shortcode_string_pros += '[joomdev-wpc-pros]'+v+'[/joomdev-wpc-pros]';
+                        shortcode_string_pros += '<li class="joomdev_wpc_pro_single">'+v+'</li>';
                     });
+                    var shortcode_string_pros_list = '[joomdev-wpc-pros]<h4 class="section-title">Pros</h4><ul class="joomdev_wpc_pros_list">'+shortcode_string_pros+'</ul>[/joomdev-wpc-pros]';
 
                     var shortcode_string_cons = '';
                     $(document).find('[name="joomdev_wpc_con_single[]"]').each(function(){
                         var v = $(this).val();
                         v = $.trim(v);
-                        shortcode_string_cons += '[joomdev-wpc-cons]'+v+'[/joomdev-wpc-cons]';
+                        // shortcode_string_cons += '[joomdev-wpc-cons]'+v+'[/joomdev-wpc-cons]';
+                        shortcode_string_cons += '<li class="joomdev_wpc_con_single">'+v+'</li>';
                     });
+                    var shortcode_string_cons_list = '[joomdev-wpc-cons]<h4 class="section-title">Cons</h4><ul class="joomdev_wpc_cons_list">'+shortcode_string_cons+'</ul>[/joomdev-wpc-cons]';
 
-                    var shortcode_string = '[joomdev-wpc-pros-cons title="'+title+'" button_text="'+button_text+'"]'+shortcode_string_pros+shortcode_string_cons+'[/joomdev-wpc-pros-cons]';
+                    var shortcode_string = '<br>[joomdev-wpc-pros-cons title="'+title+'" button_text="'+button_text+'" disable_button="'+disable_button+'" button_link="'+button_link+'" button_link_target="'+button_link_target+'" button_rel_attr="'+button_rel_attr+'"]'+shortcode_string_pros_list+shortcode_string_cons_list+'[/joomdev-wpc-pros-cons]<br>';
                     window.parent.send_to_editor(shortcode_string);
                     window.parent.tb_remove();
                     $('#joomdev_wpc_editor_button_popup').dialog('close');
