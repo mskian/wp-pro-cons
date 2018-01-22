@@ -7,10 +7,11 @@ function joomdev_wpc_pros_cons($atts, $content){
 	global $JoomDev_wpc_options;
 
 	$default = array(
-					'title' => 'Title Here',
-					'button_text' => 'Get it now',
-					'disable_button' => 'no',
-					'button_link' => 'javascript:;',
+					'disable_title' => 'no',
+                    'title' => 'Title Here',
+                    'button_text' => 'Get it now',
+                    'disable_button' => 'no',
+					'button_link' => '',
 					'button_link_target' => '_SELF',
 					'button_rel_attr' => 'nofollow',
 				);
@@ -39,62 +40,82 @@ function joomdev_wpc_pros_cons($atts, $content){
 	ob_start();
 
 	?>
-		<style type="text/css">
-			.wp-pros-cons{
-				background: <?php echo $JoomDev_wpc_options['box_background_color']; ?>;
-				<?php 
-					if($JoomDev_wpc_options['disable_box_border'] == 'yes'){
-						echo 'border: none;';
-					}
-					else{
-						?>
-							border: <?php echo $JoomDev_wpc_options['box_border_style'] . ' 2px ' . $JoomDev_wpc_options['box_border_color']; ?>;
-						<?php 
-					}
-				?>
-			}
-			.wp-pros-cons a{
-				color: <?php echo $JoomDev_wpc_options['button_text_color']; ?>;
-				background: <?php echo $JoomDev_wpc_options['button_color']; ?>;
-			}
-		</style>
-		<div class="wp-pros-cons">
-	        <h3 class="wp-pros-cons-title"><?php echo $title; ?></h3>
-	        <div class="wp-pros-cons-sections">
-	            <div class="pros-section section">
-	                <div class="wp-pros-cons-img-wrap">
-	                    <div class="wp-pros-cons-img-container bg-green">
-	                        <img src="<?php echo plugins_url( JOOMDEV_DIR . '/assets/img/thumbs-up-icon.png' ); ?>" alt="thumbs-up-icon">
-	                    </div>
-	                </div>
-	                <?php echo $pros; ?>
-	            </div>
+<style type="text/css">
+    .wp-pros-cons {
+        background: <?php echo $JoomDev_wpc_options['box_background_color'];
+        ?>;
+        <?php if($JoomDev_wpc_options['disable_box_border']=='yes') {
+            echo 'border: none;';
+        }
+        else {
+            ?>border: <?php echo $JoomDev_wpc_options['box_border_style'] . ' 2px ' . $JoomDev_wpc_options['box_border_color'];
+            ?>;
+            <?php
+        }
+        ?>
+    }
 
-	            <div class="cons-section section">
-	                <div class="wp-pros-cons-img-wrap">
-	                    <div class="wp-pros-cons-img-container bg-red">
-	                        <img src="<?php echo plugins_url( JOOMDEV_DIR . '/assets/img/thumbs-down-icon.png' ); ?>" alt="thumbs-down-icon">
-	                    </div>
-	                </div>
-	                <?php echo $cons; ?>
-	            </div>
-	           
-	        </div>
-	        <div class="wp-pros-cons-btn-wrap">
-	        	<?php 
+    .wp-pros-cons a {
+        color: <?php echo $JoomDev_wpc_options['button_text_color'];
+        ?>;
+        background: <?php echo $JoomDev_wpc_options['button_color'];
+        ?>;
+    }
+
+</style>
+<div class="wp-pros-cons">
+    <?php 
+        if($disable_title == 'yes'){
+            // do nothing
+        }
+        else{
+            ?>
+                <h3 class="wp-pros-cons-title">
+                    <?php echo $title; ?>
+                </h3>
+            <?php 
+        }
+    ?>
+    <div class="wp-pros-cons-sections">
+        <div class="wp-pros-cons-col">
+            <div class="pros-section section">
+                <div class="wp-pros-cons-img-wrap">
+                    <div class="wp-pros-cons-img-container bg-green">
+                        <img src="<?php echo plugins_url( JOOMDEV_DIR . '/assets/img/thumbs-up-icon.png' ); ?>" alt="thumbs-up-icon">
+                    </div>
+                </div>
+                <?php echo $pros; ?>
+            </div>
+        </div>
+        <div class="wp-pros-cons-col">
+            <div class="cons-section section">
+                <div class="wp-pros-cons-img-wrap">
+                    <div class="wp-pros-cons-img-container bg-red">
+                        <img src="<?php echo plugins_url( JOOMDEV_DIR . '/assets/img/thumbs-down-icon.png' ); ?>" alt="thumbs-down-icon">
+                    </div>
+                </div>
+                <?php echo $cons; ?>
+            </div>
+        </div>
+
+    </div>
+    <div class="wp-pros-cons-btn-wrap">
+        <?php 
 	        		if($disable_button == 'yes'){
 	        			// do nothing
 	        		}
 	        		else{
 	        			?>
-	        				<a href="<?php echo $button_link; ?>" target="<?php echo $button_link_target; ?>" rel="<?php echo $button_rel_attr; ?>"  style="text-align: center;"><?php echo $button_text; ?></a>
-	        			<?php 
+        <a href="<?php echo $button_link; ?>" target="<?php echo $button_link_target; ?>" rel="<?php echo $button_rel_attr; ?>" style="text-align: center;">
+            <?php echo $button_text; ?>
+        </a>
+        <?php 
 	        		}
 	        	?>
-	        </div>
-	    </div>
+    </div>
+</div>
 
-	<?php 
+<?php 
 
 	return ob_get_clean();
 }

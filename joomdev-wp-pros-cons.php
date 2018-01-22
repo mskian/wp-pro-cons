@@ -1,11 +1,11 @@
 <?php 
 /*
 	Plugin Name: JoomDev WP Pros & Cons
-	Plugin URI: http://elegantinfosolution.com/
+	Plugin URI: https://joomdev.com/wordpress-plugins/wp-pros-cons
 	Description: This plugin provides you the shortcode to show pros/cons on any of the page. It will add a button to editor, which enables you the visual shortcode.
 	Version: 1.0.0
 	Author: JoomDev
-	Author URI: http://elegantinfosolution.com/
+	Author URI: https://joomdev.com
 */
 
 
@@ -17,15 +17,17 @@ if(!defined('JOOMDEV_DIR')){
 	define('JOOMDEV_DIR', 'joomdev-wp-pros-cons');
 }
 
+define('JOOMDEV_MORE_THEMES_PLUGINS_URL', 'https://joomdev.com/wordpress-plugins');
 
-include 'jommdev-wpc-functions.php';
-include 'admin/jommdev-wpc-options.php';
+
+include 'joomdev-wpc-functions.php';
+include 'admin/joomdev-wpc-options.php';
 include 'joomdev-wpc-shortcodes.php';
 
 add_action('init', 'get_joomdev_wpc_options', 99);
 
-add_action( 'admin_enqueue_scripts', 'jommdev_wpc_color_picker' );
-function jommdev_wpc_color_picker( $hook ) {
+add_action( 'admin_enqueue_scripts', 'joomdev_wpc_color_picker' );
+function joomdev_wpc_color_picker( $hook ) {
  
     // if( is_admin() ) { 
         // Add the color picker css file       
@@ -55,24 +57,8 @@ function joomdev_wpc_admin_footer_scripts(){
 add_action('init', 'joomdev_wpc_init_functions', 999);
 function joomdev_wpc_init_functions(){
 	global $JoomDev_wpc_options;
-	/*if($JoomDev_wpc_options['enable_bootstrap'] == 'yes'){
-		add_action('wp_enqueue_scripts', 'joomdev_wpc_enable_bootstrap');
-	}
-	if($JoomDev_wpc_options['enable_fontawesome'] == 'yes'){
-		add_action('wp_enqueue_scripts', 'joomdev_wpc_enable_fontawesome');
-	}*/
 
-	add_action('wp_enqueue_scripts', 'joomdev_wpc_scripts');
-}
-
-function joomdev_wpc_enable_bootstrap(){
-	wp_enqueue_style('joomdev-wpc-bootstrap-style', plugins_url( 'css/bootstrap.min.css', __FILE__ ));
-	wp_enqueue_script('joomdev-wpc-popper-script', plugins_url( 'js/popper.min.js', __FILE__ ));
-	wp_enqueue_script('joomdev-wpc-bootstrap-script', plugins_url( 'js/bootstrap.min.js', __FILE__ ));
-}
-
-function joomdev_wpc_enable_fontawesome(){
-	wp_enqueue_style('joomdev-wpc-font-awesome-style', plugins_url( 'css/font-awesome.min.css', __FILE__ ));
+	add_action('wp_enqueue_scripts', 'joomdev_wpc_scripts', 999);
 }
 
 function joomdev_wpc_scripts(){
