@@ -6,7 +6,7 @@ jQuery(function($) {
 
             //add new button     
             ed.addButton("joomdev_wpc_shortcode", {
-                title : "JoomDev Pros & Cons Shortcode",
+                title : "WP Pros & Cons Shortcode",
                 cmd : "joomdev_wpc_shortcode_command",
                 image : joomdev_wpc_plugin_url + '/images/joomdev-wpc.png'
             });
@@ -30,7 +30,7 @@ jQuery(function($) {
 
         getInfo : function() {
             return {
-                longname : "JoomDev Button",
+                longname : "WP Pros &amp; Cons Button",
                 author : "JoomDev",
                 version : "1"
             };
