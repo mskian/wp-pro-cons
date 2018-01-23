@@ -1,5 +1,0 @@
-[16-Jan-2018 13:37:08 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/elegadob/public_html/wpplugin/wp-content/plugins/joomdev-wp-pros-cons/admin/jommdev-wpc-options.php:2
-Stack trace:
-#0 /home/elegadob/public_html/wpplugin/wp-content/plugins/joomdev-wp-pros-cons/joomdev-wp-pros-cons.php(22): include()
-#1 {main}
-  thrown in /home/elegadob/public_html/wpplugin/wp-content/plugins/joomdev-wp-pros-cons/admin/jommdev-wpc-options.php on line 2
